@@ -10,33 +10,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemProductType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemOriantation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemDatetime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ItemPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsItemAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeliveryTime)
-        </th>
-        <th></th>
-    </tr>
+    
 
 @foreach (var item in Model) {
     <tr>
