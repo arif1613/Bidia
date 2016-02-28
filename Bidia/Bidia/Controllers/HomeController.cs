@@ -11,11 +11,11 @@ namespace Bidia.Controllers
 		BidiaDB db = new BidiaDB();
 		public ActionResult Index()
 		{
-			foreach (var x in db.Items)
-			{
-				db.Items.Remove(x);
-			}
-			db.SaveChanges();
+		//	foreach (var x in db.Items)
+		//	{
+		//		db.Items.Remove(x);
+		//	}
+		//	db.SaveChanges();
 			var v = db.Items.Where(r => r.IsHomePage).OrderByDescending(r => r.ItemDatetime).ToList();
 			return View(v);
 		}

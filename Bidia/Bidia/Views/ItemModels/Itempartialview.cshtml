@@ -55,7 +55,11 @@
 
 		<div class="well well-sm  pull-right">
 
-			@Html.ActionLink("Details", "Details",new {id=Model.Id})
+			@Html.ActionLink("Details", "Details", new { id = Model.Id })
+			@Html.ActionLink("Buy Now", "paypal_pay", new { amount = Model.ItemPrice, id = Model.Id })
+
+
+
 		</div>
 	</div>
 
