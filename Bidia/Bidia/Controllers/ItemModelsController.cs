@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
@@ -14,9 +15,10 @@ namespace Bidia.Controllers
 		// GET: ItemModels
 		[AllowAnonymous]
 
-		public async Task<ActionResult> Index(string itemtype)
+		public ActionResult Index(string itemtype)
 		{
-			return View(await db.Items.Where(r => r.ItemProductType == itemtype).OrderByDescending(r => r.ItemDatetime).ToListAsync());
+			var v = db.Items.Where(r => r.ItemProductType == itemtype).OrderByDescending(r => r.ItemDatetime).ToList();
+			return View(v);
 		}
 
 		// GET: ItemModels/Details/5
@@ -38,6 +40,8 @@ namespace Bidia.Controllers
 		[Authorize]
 		public ActionResult Create()
 		{
+			var v = db.ProductTypes.Select(r=>r.Name).ToList();
+			ViewBag.pro = v;
 			return View();
 		}
 
@@ -127,9 +131,24 @@ namespace Bidia.Controllers
 
 
 		[AllowAnonymous]
-		public async Task<PartialViewResult> Itempartialview(int id)
+		public PartialViewResult Itempartialview(int id)
 		{
-			ItemModel itemModel = await db.Items.FindAsync(id);
+			ItemModel itemModel = db.Items.Find(id);
+			var Picdirectory = new DirectoryInfo(Server.MapPath("~/Pictures"));
+			var fileinfo = Picdirectory.EnumerateFiles();
+			var itemfilename = itemModel.Name + ".png";
+			var itempic = fileinfo.Where(r => r.Name == itemfilename).ToList();
+
+			var p = "NoImage.png";
+			if (itempic.Any())
+			{
+				var firstOrDefault = itempic.FirstOrDefault();
+				if (firstOrDefault != null) 
+					p = firstOrDefault.Name;
+			}
+
+			ViewBag.pic = p;
+			
 			return PartialView(itemModel);
 		}
 

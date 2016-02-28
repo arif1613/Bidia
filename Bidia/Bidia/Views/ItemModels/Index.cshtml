@@ -1,49 +1,15 @@
 ﻿@model IEnumerable<Bidia.Models.BidiaModels.ItemModel>
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<hr/>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemProductType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemOriantation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemDatetime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsItemAvailable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeliveryTime)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@section row1
+{
+	@foreach (var item in Model)
+	{
+		@Html.Action("Itempartialview", new { id = item.Id });
+	}
 }
-
-</table>

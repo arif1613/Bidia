@@ -25,10 +25,13 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				@Html.ActionLink("BIDIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:white" })
 			</div>
 			<div class="navbar-collapse collapse" style="color: #ffffff">
 				<ul class="nav navbar-nav">
+					<li>
+						@Html.ActionLink("BIDIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:red" })
+					</li>
+
 					@{
 						var db = new BidiaDB();
 						var x = db.ProductTypes.ToList();
@@ -36,9 +39,7 @@
 						{
 							foreach (var a in x)
 							{
-								<li>
-									<a href="@Url.Action("Index", "ItemModels", new { itemtype =a.Name})">@a.Name</a>
-								</li>
+								<li><a href="@Url.Action("Index", "ItemModels",new {itemtype=a.Name})">@a.Name</a></li>
 							}
 						}
 
@@ -46,6 +47,7 @@
 					@if (Request.IsAuthenticated)
 					{
 						<li>@Html.ActionLink("ProductTypes", "Index", "ProductTypes")</li>
+						<li>@Html.ActionLink("New Item", "Create", "ItemModels")</li>
 
 					}
 				</ul>
@@ -71,7 +73,7 @@
 	@Scripts.Render("~/bundles/bootstrap")
 	@RenderSection("scripts", required: false)
 </body>
-</html>fon
+</html>
 
 <style>
 	.navbar-inverse .navbar-nav > li > a {
