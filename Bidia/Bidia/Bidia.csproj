@@ -174,6 +174,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GetPicture.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemModelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -183,6 +184,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BidiaModels\Advertisement.cs" />
     <Compile Include="Models\BidiaModels\BidiaDB.cs" />
     <Compile Include="Models\BidiaModels\ItemModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -328,6 +330,9 @@
     <Content Include="Views\ItemModels\Itempartialview.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\HomeItempartialview.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

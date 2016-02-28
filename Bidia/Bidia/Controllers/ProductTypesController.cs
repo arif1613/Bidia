@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Web.Mvc;
@@ -74,10 +75,16 @@ namespace Bidia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,ProductDescription")] ProductType productType)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,ProductDescription")] ProductType productType,string oldtype)
         {
             if (ModelState.IsValid)
             {
+	            var x = db.Items.Where(r => r.ItemProductType == oldtype).ToList();
+	            foreach (var v in x)
+	            {
+		            v.ItemProductType = productType.Name;
+					db.Entry(v).State = EntityState.Modified;
+	            }
                 db.Entry(productType).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

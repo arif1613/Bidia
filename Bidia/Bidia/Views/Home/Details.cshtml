@@ -1,17 +1,22 @@
-﻿@using System
-@model Bidia.Models.BidiaModels.ItemModel
+﻿@model Bidia.Models.BidiaModels.ItemModel
+
+@{
+    ViewBag.Title = "Details";
+}
 
 <div class="jumbotron customJumbrotron">
 	<div class="row">
+
 		<div class="col-md-5" style="text-align: center">
-			<img src="~/Pictures/@(ViewBag.pic)" height="320" width="240" />
+			<img src="~/Pictures/@(ViewBag.pic)" height="400" width="300" />
 		</div>
 		<div class="col-md-7">
 
 			<p style="line-height: 20px">
-				@Html.ActionLink(@Model.Name, "Details", new { id = Model.Id })
+				@Model.Name
 			</p>
 			<table class="table small table-condensed table-responsive table-striped">
+
 
 				<tr>
 					<td>
@@ -54,15 +59,11 @@
 				</tr>
 			</table>
 
-
 			<div class="well well-sm  pull-right">
-				@if (Request.IsAuthenticated)
-				{
-					@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary pull-left" })
-					@Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-primary pull-left" })
-				}
 				@Html.ActionLink("Buy Now", "paypal_pay", new { amount = Model.ItemPrice, id = Model.Id }, new { @class = "btn btn-primary pull-right" })
 			</div>
 		</div>
 	</div>
 </div>
+
+
