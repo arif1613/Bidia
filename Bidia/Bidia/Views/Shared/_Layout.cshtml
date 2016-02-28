@@ -9,8 +9,8 @@
 	@Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body style="background-color:chocolate">
-	<div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #4b0082">
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #67C7E2;border-color: transparent;color: white">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,7 +20,7 @@
 				</button>
 				@Html.ActionLink("BIDIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:white" })
 			</div>
-			<div class="navbar-collapse collapse">
+			<div class="navbar-collapse collapse" style="color: #ffffff">
 				<ul class="nav navbar-nav">
 					<li>@Html.ActionLink("Home", "Index", "Home")</li>
 					@if (Request.IsAuthenticated)
@@ -46,3 +46,20 @@
 	@RenderSection("scripts", required: false)
 </body>
 </html>
+
+<style>
+	.navbar-inverse .navbar-nav > li > a {
+		color: #ffffff;
+		font-family: cambria;
+		font-size: 20px;
+	}
+
+	.navbar-header {
+		font-family: cambria;
+	}
+
+	.body-content {
+		background-color: #E7F3F1;
+	}
+
+</style>
