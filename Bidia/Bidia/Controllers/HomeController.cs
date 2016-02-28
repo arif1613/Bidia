@@ -1,26 +1,44 @@
-﻿using System.Web.Mvc;
+﻿using System.IO;
+using System.Linq;
+using System.Web.Mvc;
+using Bidia.Models.BidiaModels;
+using Microsoft.Ajax.Utilities;
 
 namespace Bidia.Controllers
 {
 	public class HomeController : Controller
 	{
+		BidiaDB db = new BidiaDB();
 		public ActionResult Index()
 		{
-			return View();
+			foreach (var x in db.Items)
+			{
+				db.Items.Remove(x);
+			}
+			db.SaveChanges();
+			var v = db.Items.Where(r => r.IsHomePage).OrderByDescending(r => r.ItemDatetime).ToList();
+			return View(v);
 		}
 
-		public ActionResult About()
+		public PartialViewResult HomeItempartialview(int id)
 		{
-			ViewBag.Message = "Your application description page.";
+			ItemModel itemModel = db.Items.Find(id);
+			var Picdirectory = new DirectoryInfo(Server.MapPath("~/Pictures"));
+			var fileinfo = Picdirectory.EnumerateFiles();
+			var itemfilename = itemModel.Name + ".png";
+			var itempic = fileinfo.Where(r => r.Name == itemfilename).ToList();
 
-			return View();
-		}
+			var p = "NoImage.png";
+			if (itempic.Any())
+			{
+				var firstOrDefault = itempic.FirstOrDefault();
+				if (firstOrDefault != null)
+					p = firstOrDefault.Name;
+			}
 
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
+			ViewBag.pic = p;
 
-			return View();
+			return PartialView(itemModel);
 		}
 	}
 }
