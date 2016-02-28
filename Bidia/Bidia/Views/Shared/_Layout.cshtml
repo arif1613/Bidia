@@ -29,8 +29,9 @@
 						{
 							foreach (var a in x)
 							{
-								<li>@Html.ActionLink(a.Name, "Index", "ItemModels", new {itemtype = a.Name})</li>
-
+								<li>
+									<a href="@Url.Action("Index", "ItemModels", new { itemtype =a.Name})">@a.Name</a>
+								</li>
 							}
 						}
 
