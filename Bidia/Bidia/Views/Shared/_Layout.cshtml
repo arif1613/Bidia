@@ -1,4 +1,6 @@
 ﻿@using System
+@using System.Activities.Statements
+@using Bidia.Models.BidiaModels
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +25,19 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li>@Html.ActionLink("Home", "Index", "Home")</li>
+					@*@{
+						var db = new BidiaDB();
+						var x = db.ProductTypes.ToList();
+						if (x.Any())
+						{
+							foreach (var a in x)
+							{
+								<li>@Html.ActionLink(a.Name, "Index", "ItemModels", new {itemtype = a.Name})</li>
+
+							}
+						}
+
+					}*@
 					@if (Request.IsAuthenticated)
 					{
 						<li>@Html.ActionLink("ProductTypes", "Index", "ProductTypes")</li>
@@ -33,13 +48,18 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="container body-content">
 		@RenderBody()
-		<hr />
-		<footer>
-			<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-		</footer>
 	</div>
+	<div class="container body-content">
+		<div class="jumbotron">
+			@RenderSection("row1", false)
+		</div>
+	</div>
+	<footer class="container body-content">
+		<p>Bidia &copy; @DateTime.Now.Year </p>
+	</footer>
 
 	@Scripts.Render("~/bundles/jquery")
 	@Scripts.Render("~/bundles/bootstrap")
