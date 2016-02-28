@@ -1,12 +1,19 @@
-﻿@using Bidia.Models.BidiaModels
+﻿@using System
+@using System.Linq
+@using Bidia.Models.BidiaModels
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - Bidia LifeStyles</title>
+	<title>@ViewBag.Title - My ASP.NET Application</title>
+	<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 	@Styles.Render("~/Content/css")
+
 	@Scripts.Render("~/bundles/modernizr")
+
 
 </head>
 <body>
@@ -55,7 +62,8 @@
 			@RenderSection("row1", false)
 		</div>
 	</div>
-	<footer class="container body-content">
+	<footer class="container body-content" style="font-family: calibri; font-size: 20px;font-weight: 700;color: #67c7e2;text-decoration: none">
+		<a href="https://www.facebook.com/bipudia" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
 		<p>Bidia &copy; @DateTime.Now.Year </p>
 	</footer>
 
@@ -63,7 +71,7 @@
 	@Scripts.Render("~/bundles/bootstrap")
 	@RenderSection("scripts", required: false)
 </body>
-</html>
+</html>fon
 
 <style>
 	.navbar-inverse .navbar-nav > li > a {
@@ -79,5 +87,4 @@
 	.body-content {
 		background-color: #E7F3F1;
 	}
-
 </style>
