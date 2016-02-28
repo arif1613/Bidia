@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Bidia.Models.BidiaModels;
 
@@ -16,9 +11,9 @@ namespace Bidia.Controllers
         private BidiaDB db = new BidiaDB();
 
         // GET: ProductTypes
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View(db.ProductTypes.ToList());
+            return View(await db.ProductTypes.ToListAsync());
         }
 
         // GET: ProductTypes/Details/5
