@@ -1,0 +1,135 @@
+﻿@using System
+@using System.Linq
+@using Bidia.Models.BidiaModels
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - Bidia Lifestyle</title>
+	<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="~/css/CustomCss.css" rel="stylesheet" />
+
+	@Styles.Render("~/Content/css")
+
+	@Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body style="padding-bottom: 0px;">
+	<div class="navbar navbar-inverse navbar-fixed-top" style="font-family: Sans-serif;border-color: transparent;color: white">
+		<div class="container customContainer">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<ul class="nav navbar-nav">
+					<li>
+						@Html.ActionLink("  BIDIA  ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:white" })
+
+					</li>
+				</ul>
+			</div>
+			<div class="navbar-collapse collapse" style="color: #ffffff">
+				<ul class="nav navbar-nav">
+
+					@{
+						var db = new BidiaDB();
+						var x = db.ProductTypes.ToList();
+						if (x.Any())
+						{
+							foreach (var a in x)
+							{
+								<li><a href="@Url.Action("Index", "ItemModels",new {itemtype=a.Name})">@a.Name</a></li>
+							}
+						}
+
+					}
+					@if (Request.IsAuthenticated)
+					{
+
+						<li>@Html.ActionLink("ProductTypes", "Index", "ProductTypes")</li>
+						<li>@Html.ActionLink("New Item", "Create", "ItemModels")</li>
+
+					}
+				</ul>
+				@Html.Partial("_LoginPartial")
+			</div>
+		</div>
+	</div>
+
+	<div class="container body-content">
+		@RenderBody()
+	</div>
+	<div class="container body-content">
+		@RenderSection("row1", false)
+	</div>
+	<footer class="container body-content customFooter" style="background-color:  #B0E57C;font-family: calibri; font-size: 20px;font-weight: 700;color: #67c7e2;text-decoration: none">
+		<a href="https://www.facebook.com/bipudia" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
+		<p>Bidia &copy; @DateTime.Now.Year </p>
+	</footer>
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+</body>
+</html>
+
+<style>
+	html, body {
+		height: 100%;
+		/*background-color: #B4D8E7;*/
+	}
+
+	.customJumbrotron {
+		padding-top: 25px;
+		padding-right: 0px;
+		margin-bottom: 0px;
+	}
+
+
+
+	/*.customContainer {
+		min-height: 100%;*/
+	/* equal to footer height */
+	/*margin-bottom: -142px;*/
+	/*}*/
+
+
+	.body-content:after {
+		content: "";
+		display: block;
+	}
+
+	.customFooter {
+		/*height: 76px;*/
+		margin-bottom: 0px;
+	}
+
+
+	/*.customFooter {
+		height: 470px;
+		background-color: #B0E57C;
+	}*/
+
+	.navbar-inverse .navbar-nav > li > a {
+		color: #ffffff;
+		font-family: cambria;
+		font-size: 20px;
+	}
+
+	.navbar-header {
+		font-family: cambria;
+	}
+
+	.body-content {
+		background-color: #B4D8E7;
+		/*min-height: 100%;*/
+		/*margin-bottom: -142px;*/
+	}
+
+</style>

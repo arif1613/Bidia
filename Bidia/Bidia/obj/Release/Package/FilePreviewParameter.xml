@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="bidia" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Arif_Git\\Bidia\\Bidia\\Bidia\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Arif_Git\\Bidia\\Bidia\\Bidia\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="BidiaDB-Web.config Connection String" description="" value="Data Source=tcp:bdshopping.database.windows.net,1433;Initial Catalog=bdshopping;User ID=arif1613@bdshopping;Password=aa1613++;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Arif_Git\\Bidia\\Bidia\\Bidia\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BidiaDB']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=tcp:bdshopping.database.windows.net,1433;Initial Catalog=bdshopping;User ID=arif1613@bdshopping;Password=aa1613++;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Arif_Git\\Bidia\\Bidia\\Bidia\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,69 @@
+﻿@model Bidia.Models.BidiaModels.ItemModel
+
+@{
+	ViewBag.Title = "Details";
+}
+
+<div class="jumbotron customJumbrotron">
+	<div class="row">
+
+		<div class="col-md-5" style="text-align: center">
+			<img src="~/Pictures/@(ViewBag.pic)" height="400" width="300" />
+		</div>
+		<div class="col-md-7">
+
+			<p style="line-height: 20px">
+				@Model.Name
+			</p>
+			<table class="table small table-condensed table-responsive table-striped">
+
+
+				<tr>
+					<td>
+						<a>Description:</a>
+					</td>
+					<td>
+						@Model.Name
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a>Price:</a>
+					</td>
+					<td>
+						@Math.Abs(Model.ItemPrice)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a>Available:</a>
+					</td>
+					<td>
+						@if (Model.IsItemAvailable)
+						{
+							<a>Available in stock</a>
+						}
+						else
+						{
+							<a>Not available in stock</a>
+						}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a>Delivery Time:</a>
+					</td>
+					<td>
+						@Model.DeliveryTime
+					</td>
+				</tr>
+			</table>
+
+			<div class="well well-sm  pull-right">
+				@Html.ActionLink("Buy Now", "paypal_pay", new { amount = Model.ItemPrice, id = Model.Id }, new { @class = "btn btn-primary pull-right" })
+			</div>
+		</div>
+	</div>
+</div>
+
+

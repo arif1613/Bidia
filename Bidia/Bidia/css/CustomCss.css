@@ -1,0 +1,13 @@
+﻿
+@media (max-width: 767px) {
+
+	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	body {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
