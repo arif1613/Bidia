@@ -24,8 +24,7 @@
 			</div>
 			<div class="navbar-collapse collapse" style="color: #ffffff">
 				<ul class="nav navbar-nav">
-					<li>@Html.ActionLink("Home", "Index", "Home")</li>
-					@*@{
+					@{
 						var db = new BidiaDB();
 						var x = db.ProductTypes.ToList();
 						if (x.Any())
@@ -37,7 +36,7 @@
 							}
 						}
 
-					}*@
+					}
 					@if (Request.IsAuthenticated)
 					{
 						<li>@Html.ActionLink("ProductTypes", "Index", "ProductTypes")</li>

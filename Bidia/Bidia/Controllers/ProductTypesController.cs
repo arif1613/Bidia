@@ -16,9 +16,9 @@ namespace Bidia.Controllers
         private BidiaDB db = new BidiaDB();
 
         // GET: ProductTypes
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View(db.ProductTypes.ToList());
+            return View(await db.ProductTypes.ToListAsync());
         }
 
         // GET: ProductTypes/Details/5
