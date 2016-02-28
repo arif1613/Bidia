@@ -35,6 +35,22 @@ namespace Bidia.Controllers
 			{
 				return HttpNotFound();
 			}
+			var Picdirectory = new DirectoryInfo(Server.MapPath("~/Pictures"));
+			var fileinfo = Picdirectory.EnumerateFiles();
+			var itemfilename = itemModel.Name + ".png";
+			var itempic = fileinfo.Where(r => r.Name == itemfilename).ToList();
+
+			var p = "NoImage.png";
+			if (itempic.Any())
+			{
+				var firstOrDefault = itempic.FirstOrDefault();
+				if (firstOrDefault != null)
+					p = firstOrDefault.Name;
+			}
+
+			ViewBag.pic = p;
+
+
 			return View(itemModel);
 		}
 

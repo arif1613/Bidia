@@ -1,80 +1,69 @@
 ﻿@model Bidia.Models.BidiaModels.ItemModel
 
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Details";
 }
 
+<div class="jumbotron customJumbrotron">
+	<div class="row">
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+		<div class="col-md-5" style="text-align: center">
+			<img src="~/Pictures/@(ViewBag.pic)" height="400" width="300" />
+		</div>
+		<div class="col-md-7">
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+			<p style="line-height: 20px">
+				@Model.Name
+			</p>
+			<table class="table small table-condensed table-responsive table-striped">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ItemDescription)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ItemDescription)
-        </dd>
+				<tr>
+					<td>
+						<a>Description:</a>
+					</td>
+					<td>
+						@Model.Name
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a>Price:</a>
+					</td>
+					<td>
+						@Math.Abs(Model.ItemPrice)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a>Available:</a>
+					</td>
+					<td>
+						@if (Model.IsItemAvailable)
+						{
+							<a>Available in stock</a>
+						}
+						else
+						{
+							<a>Not available in stock</a>
+						}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a>Delivery Time:</a>
+					</td>
+					<td>
+						@Model.DeliveryTime
+					</td>
+				</tr>
+			</table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ItemProductType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ItemProductType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ItemOriantation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ItemOriantation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ItemDatetime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ItemDatetime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ItemPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ItemPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsItemAvailable)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsItemAvailable)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DeliveryTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DeliveryTime)
-        </dd>
-
-    </dl>
+			<div class="well well-sm  pull-right">
+				@Html.ActionLink("Buy Now", "paypal_pay", new { amount = Model.ItemPrice, id = Model.Id }, new { @class = "btn btn-primary pull-right" })
+			</div>
+		</div>
+	</div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
