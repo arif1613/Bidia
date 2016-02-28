@@ -58,8 +58,12 @@ namespace Bidia.Controllers
 			if (ModelState.IsValid)
 			{
 				db.Items.Add(itemModel);
+			
 				await db.SaveChangesAsync();
-				return RedirectToAction("Index");
+
+				var x = db.Items.Where(r => r.ItemProductType == itemModel.ItemProductType).ToList();
+
+				return View("Index",x);
 			}
 
 			return View(itemModel);

@@ -16,9 +16,9 @@
 
 
 </head>
-<body>
-	<div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #67C7E2;border-color: transparent;color: white">
-		<div class="container">
+<body style="padding-top: 61px;padding-bottom: 0px;">
+	<div class="navbar navbar-inverse navbar-fixed-top" style="font-family: Sans-serif;background-color: #56BAFC;border-color: transparent;color: white">
+		<div class="container customContainer">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="icon-bar"></span>
@@ -29,7 +29,7 @@
 			<div class="navbar-collapse collapse" style="color: #ffffff">
 				<ul class="nav navbar-nav">
 					<li>
-						@Html.ActionLink("BIDIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:red" })
+						@Html.ActionLink("BIDIA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:white" })
 					</li>
 
 					@{
@@ -60,11 +60,15 @@
 		@RenderBody()
 	</div>
 	<div class="container body-content">
-		<div class="jumbotron">
+		<div class="jumbotron customJumbrotron">
+
+
 			@RenderSection("row1", false)
+
+
 		</div>
 	</div>
-	<footer class="container body-content" style="font-family: calibri; font-size: 20px;font-weight: 700;color: #67c7e2;text-decoration: none">
+	<footer class="container body-content customFooter" style="background-color:  #B0E57C;font-family: calibri; font-size: 20px;font-weight: 700;color: #67c7e2;text-decoration: none">
 		<a href="https://www.facebook.com/bipudia" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
 		<p>Bidia &copy; @DateTime.Now.Year </p>
 	</footer>
@@ -76,6 +80,42 @@
 </html>
 
 <style>
+	html, body {
+		height: 100%;
+		background-color: #B4D8E7;
+	}
+
+	.customJumbrotron {
+		padding-top: 25px;
+		padding-right: 0px;
+		margin-bottom: 0px;
+	}
+
+
+
+	/*.customContainer {
+		min-height: 100%;*/
+	/* equal to footer height */
+	/*margin-bottom: -142px;*/
+	/*}*/
+
+
+	.body-content:after {
+		content: "";
+		display: block;
+	}
+
+	.customFooter {
+		/*height: 76px;*/
+		margin-bottom: 0px;
+	}
+
+
+	/*.customFooter {
+		height: 470px;
+		background-color: #B0E57C;
+	}*/
+
 	.navbar-inverse .navbar-nav > li > a {
 		color: #ffffff;
 		font-family: cambria;
@@ -87,6 +127,8 @@
 	}
 
 	.body-content {
-		background-color: #E7F3F1;
+		background-color: #B4D8E7;
+		/*min-height: 100%;*/
+		/*margin-bottom: -142px;*/
 	}
 </style>
