@@ -1,0 +1,82 @@
+﻿@model Bidia.Models.BidiaModels.ItemModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ItemModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemProductType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemProductType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemOriantation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemOriantation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemDatetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemDatetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsItemAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsItemAvailable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
