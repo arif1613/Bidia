@@ -184,7 +184,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BidiaModels\Advertisement.cs" />
     <Compile Include="Models\BidiaModels\BidiaDB.cs" />
     <Compile Include="Models\BidiaModels\ItemModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />

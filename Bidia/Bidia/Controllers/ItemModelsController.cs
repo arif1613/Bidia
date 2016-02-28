@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -42,6 +43,8 @@ namespace Bidia.Controllers
 		public ActionResult Create()
 		{
 			var v = db.ProductTypes.Select(r => r.Name).ToList();
+			var x = new List<string> { "No", "Yes" };
+			ViewBag.ad = x;
 			ViewBag.pro = v;
 			return View();
 		}
@@ -95,6 +98,11 @@ namespace Bidia.Controllers
 			{
 				return HttpNotFound();
 			}
+
+			var v = db.ProductTypes.Select(r => r.Name).ToList();
+			var x = new List<string> { "No", "Yes" };
+			ViewBag.ad = x;
+			ViewBag.pro = v;
 			return View(itemModel);
 		}
 
@@ -188,8 +196,6 @@ namespace Bidia.Controllers
 
 			return PartialView(itemModel);
 		}
-
-
 		public void paypal_pay(decimal amount, int id)
 		{
 			var item = db.Items.Find(id);
