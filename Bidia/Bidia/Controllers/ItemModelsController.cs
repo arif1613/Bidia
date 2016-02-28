@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Web.Mvc;
@@ -11,9 +12,9 @@ namespace Bidia.Controllers
         private BidiaDB db = new BidiaDB();
 
         // GET: ItemModels
-        public async Task<ActionResult> Index()
+		public async Task<ActionResult> Index(string itemtype)
         {
-            return View(await db.Items.ToListAsync());
+            return View(await db.Items.Where(r=>r.ItemProductType==itemtype).OrderByDescending(r=>r.ItemDatetime).ToListAsync());
         }
 
         // GET: ItemModels/Details/5
