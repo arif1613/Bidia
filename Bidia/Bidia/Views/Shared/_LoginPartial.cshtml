@@ -17,7 +17,7 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         <li>@*@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })*@</li>
-        <li>@Html.ActionLink("SIGN IN", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li><i class="fa fa-sign-in"></i>@Html.ActionLink("SIGN IN", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
 
@@ -25,6 +25,8 @@ else
 @*<a href="#" class="myButton">LOGIN</a>*@
 <style>
 	#loginLink {
+
+
 	-moz-box-shadow:inset -18px 14px 35px 0px #f2fadc;
 	-webkit-box-shadow:inset -18px 14px 35px 0px #f2fadc;
 	box-shadow:inset -18px 14px 35px 0px #f2fadc;
@@ -72,4 +74,6 @@ else
 	top:1px;
 }
 
+#loginLink:before {
+}
 </style>
