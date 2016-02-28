@@ -1,12 +1,15 @@
 ﻿@model System.Collections.Generic.IEnumerable<Bidia.Models.BidiaModels.ItemModel>
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 <hr />
 
 @section row1
 {
+	<div class="well well-sm">
+		<marquee><a style="color:#8b0000;font-size: 16px">New Arrivals</a></marquee>
+	</div>
 	@foreach (var item in Model)
 	{
 		@Html.Action("HomeItempartialview", new { id = item.Id });

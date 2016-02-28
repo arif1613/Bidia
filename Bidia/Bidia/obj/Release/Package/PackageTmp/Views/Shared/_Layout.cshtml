@@ -19,7 +19,7 @@
 
 </head>
 <body style="padding-bottom: 0px;">
-	<div class="navbar navbar-inverse navbar-fixed-top" style="font-family: Sans-serif;border-color: transparent;color: white">
+	<div class="navbar navbar-inverse navbar-fixed-top" style="font-family: Sans-serif;background-color: #56BAFC;border-color: transparent;color: white">
 		<div class="container customContainer">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -29,7 +29,9 @@
 				</button>
 				<ul class="nav navbar-nav">
 					<li>
-						@Html.ActionLink("  BIDIA  ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:white" })
+						<marquee>
+							<a>@Html.ActionLink("  BIDIA  ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:red" })</a>
+						</marquee>
 
 					</li>
 				</ul>
@@ -63,6 +65,21 @@
 	</div>
 
 	<div class="container body-content">
+		<div class="row">
+			<div class="col-md-12">
+				<br/>
+				<p class="header" style="font-weight: 700;font-family: calibri;font-size: 16px;">
+					<strong>
+						One of the finest different type enterprise.
+						Here we make our own clothing, apparel and home decors.
+						As well as we export and import dresses. BiDia always care about your choiceable products.
+						Here you can find cloths for both men, women and children and you can even find various necessary items for your home.
+						BiDia is 100% reliable corporation.
+					</strong>
+				</p>
+			</div>
+		</div>
+
 		@RenderBody()
 	</div>
 	<div class="container body-content">
@@ -131,5 +148,4 @@
 		/*min-height: 100%;*/
 		/*margin-bottom: -142px;*/
 	}
-
 </style>
