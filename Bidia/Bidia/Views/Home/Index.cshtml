@@ -1,4 +1,5 @@
-﻿@model System.Collections.Generic.IEnumerable<Bidia.Models.BidiaModels.ItemModel>
+﻿@using Antlr.Runtime
+@model System.Collections.Generic.IEnumerable<Bidia.Models.BidiaModels.ItemModel>
 
 @{
 	ViewBag.Title = "Index";
@@ -35,7 +36,7 @@
 		@foreach (var i in Model)
 		{
 			<div class="item active">
-				<img src="~/Pictures/@(i.Name).png">
+				<a href="@Url.Action("Details","Home",new{id=i.Id})"><img src="~/Pictures/@(i.Name).png"></a>
 				<div class="carousel-caption">
 					<h3>@i.Name</h3>
 					<p>@i.ItemDescription</p>
