@@ -38,7 +38,7 @@
 			if (i.ItemOriantation == "Yes")
 			{
 				<div class="item active">
-					<a href="@Url.Action("Details","Home",new{id=i.Id})"><img src="~/Pictures/@(i.Name).png"></a>
+					<a href="@Url.Action("Details","Home",new{id=i.Id})"><img src="~/Pictures/@(i.Name).png" height="600px" width="450px"></a>
 					<div class="carousel-caption">
 						<h3>@i.Name</h3>
 						<p>@i.ItemDescription</p>

@@ -35,13 +35,14 @@
 							<a href="@Url.Action("Index", "Home")">
 								<img src="~/Pictures/Logo/logo.jpg" height="45" width="45" />
 							</a>
-							@*@Html.ActionLink("  BIDIA  ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:red" })*@
 
 						</li>
 					</ul>
 				</div>
 				<div class="navbar-collapse collapse" style="color: #ffffff">
 					<ul class="nav navbar-nav">
+						@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:red" })
+
 
 						@{
 							var db = new BidiaDB();
