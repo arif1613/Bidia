@@ -218,6 +218,7 @@
     <None Include="Properties\PublishProfiles\bidia.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="JsFiles\DatepickerFile.js" />
+    <Content Include="Pictures\Logo\logo.jpg" />
     <Content Include="Pictures\NoImage.png" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -339,6 +340,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Pictures\Sliders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

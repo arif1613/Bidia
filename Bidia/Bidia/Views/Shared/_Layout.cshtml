@@ -7,9 +7,9 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>@ViewBag.Title - Bidia Lifestyle</title>
-	<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
 	<link href="~/css/CustomCss.css" rel="stylesheet" />
 
 	@Styles.Render("~/Content/css")
@@ -29,7 +29,7 @@
 				</button>
 				<ul class="nav navbar-nav">
 					<li>
-							@Html.ActionLink("  BIDIA  ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:red" })
+						@Html.ActionLink("  BIDIA  ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:red" })
 
 					</li>
 				</ul>
@@ -63,27 +63,14 @@
 	</div>
 
 	<div class="container body-content">
-		<div class="row">
-			<div class="col-md-12">
-				<br/>
-				<p class="header" style="font-weight: 700;font-family: calibri;font-size: 16px;">
-					<strong>
-						One of the finest different type enterprise.
-						Here we make our own clothing, apparel and home decors.
-						As well as we export and import dresses. BiDia always care about your choiceable products.
-						Here you can find cloths for both men, women and children and you can even find various necessary items for your home.
-						BiDia is 100% reliable corporation.
-					</strong>
-				</p>
-			</div>
-		</div>
+		
 
 		@RenderBody()
 	</div>
 	<div class="container body-content">
 		@RenderSection("row1", false)
 	</div>
-	<footer class="container body-content customFooter" style="background-color:  #B0E57C;font-family: calibri; font-size: 20px;font-weight: 700;color: #67c7e2;text-decoration: none">
+	<footer class="container body-content customFooter" style="background-color:  #000000;font-family: calibri; font-size: 20px;font-weight: 700;color: #ffffff;text-decoration: none">
 		<a href="https://www.facebook.com/bipudia" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
 		<p>Bidia &copy; @DateTime.Now.Year </p>
 	</footer>
@@ -142,7 +129,7 @@
 	}
 
 	.body-content {
-		background-color: #B4D8E7;
+		background-color: #ffffff;
 		/*min-height: 100%;*/
 		/*margin-bottom: -142px;*/
 	}
