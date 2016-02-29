@@ -5,7 +5,10 @@
 		margin-left: 0;
 		margin-right: 0;
 	}
-
+	.navbar-header pull-left {
+		margin-left: 0;
+		margin-right: 0;
+	}
 	body {
 		padding-left: 0px;
 		padding-right: 0px;
